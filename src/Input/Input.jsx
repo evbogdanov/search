@@ -11,17 +11,19 @@ class Input extends Component {
     if (event.key !== 'Enter') {
       return;
     }
-    console.log('ENTER!');
-    // window.open('http://...');
+    this.props.openUrl();
   };
 
   render = () => {
     return (
-      <input type="text"
+      <input ref={inp => this.input = inp}
+             type="text"
              className="Input"
+             style={{background: this.props.background}}
              value={this.props.query}
              onKeyPress={this.handleKeyPress}
-             onChange={this.handleChange} />
+             onChange={this.handleChange}
+             autoFocus={true} />
     );
   };
 }

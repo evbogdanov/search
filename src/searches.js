@@ -1,3 +1,5 @@
+const searchPlaceholder = '{s}';
+
 const searches = [
   //////////////////////////////////////////////////////////////////////////////
   /// Search engines
@@ -196,4 +198,7 @@ const searches = [
   },
 ];
 
-export default searches;
+export {
+  searchPlaceholder,
+  searches
+};
