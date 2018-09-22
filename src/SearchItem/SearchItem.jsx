@@ -4,7 +4,7 @@ class SearchItem extends Component {
   handleClick = () => {
     this.props.selectShortcut(this.props.search.shortcut);
   };
-  
+
   render = () => {
     const s = this.props.search;
     const style = {};
