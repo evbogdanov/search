@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
+import Input from './Input/Input';
 
 class App extends Component {
-  render() {
+  state = {
+    query: ''
+  };
+
+  updateQuery = (query) => {
+    this.setState({query});
+  };
+
+  render = () => {
     const searchItems = this.props.searches.map(s => {
       return (
         <li key={s.shortcut}>
@@ -16,12 +25,15 @@ class App extends Component {
     });
     return (
       <div className="App">
+        <h1 className="App__heading">Search by shortcuts</h1>
+        <Input updateQuery={this.updateQuery.bind(this)}
+               query={this.query} />
         <ul>
           {searchItems}
         </ul>
       </div>
     );
-  }
+  };
 }
 
 export default App;
