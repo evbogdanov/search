@@ -9,9 +9,10 @@
 
 :root {
   --black-color: #000;
+  --dark-grey-color: #777;
   --grey-color: #999;
   --medium-grey-color: #a1a1a1;
-  --light-grey-color: #e1e1e1;
+  --light-grey-color: #e3e3e3;
   --lightest-grey-color: #fafafa;
   --green-color: #2b8989;
   --light-green-color: #d8f9f5;
