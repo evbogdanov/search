@@ -3,6 +3,7 @@ import './App.css';
 import Input from './Input/Input';
 import SearchItem from './SearchItem/SearchItem';
 import {searchPlaceholder} from './searches';
+import Message from './Message/Message';
 
 class App extends Component {
   state = {
@@ -80,10 +81,21 @@ class App extends Component {
                          selectShortcut={this.selectShortcut.bind(this)}
                          search={s} />;
     });
+
     const clearButtonStyle = {};
     if (this.state.query === '') {
       clearButtonStyle.display = 'none';
     }
+
+    let message = null;
+    if (exactMatch !== null) {
+      const [, baseUrl] = exactMatch.url.match(/https?:\/\/(.+?)\//);
+      message = <Message text={`Go to ${baseUrl}`} />;
+    }
+    else if (matches.length === 0) {
+      message = <Message text="Oops! Unknown shortcut." />;
+    }
+
     return (
       <div className="App">
         <h1 className="App__heading">Search by shortcuts</h1>
@@ -104,6 +116,7 @@ class App extends Component {
         <ul className="App__search-items">
           {searchItems}
         </ul>
+        {message}
       </div>
     );
   };

@@ -27,12 +27,12 @@
 .SearchItem__image {
   width: 3rem;
   height: 3rem;
-  margin-right: 1rem;
+  margin-right: 1.5rem;
 }
 
 .SearchItem__shortcut {
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .SearchItem__description {
