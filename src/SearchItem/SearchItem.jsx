@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SearchItem.css';
 
 class SearchItem extends Component {
   handleClick = () => {
@@ -7,18 +8,19 @@ class SearchItem extends Component {
 
   render = () => {
     const s = this.props.search;
-    const style = {};
-    if (this.props.isExactMatch) {
-      style.background = 'lightgreen';
-    }
+    const classNameMatched = this.props.isExactMatch ? ' SearchItem_matched' : '';
     return (
-      <li style={style}
+      <li className={`SearchItem${classNameMatched}`}
           onClick={this.handleClick}>
-        <img alt=""
-             src={`/${s.icon}`}
-             style={{width: '32px', height: '32px', marginRight: '10px'}}/>
-        <b style={{marginRight: '10px'}}>{s.shortcut}</b>
-        <span>{s.description}</span>
+        <div className="SearchItem__image-and-shortcut">
+          <div className="SearchItem__image-wrapper">
+            <img className="SearchItem__image"
+                 src={`/${s.icon}`}
+                 alt={s.shortcut} />
+          </div>
+          <div className="SearchItem__shortcut">{s.shortcut}</div>
+        </div>
+        <div className="SearchItem__description">{s.description}</div>
       </li>
     );
   }

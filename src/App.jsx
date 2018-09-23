@@ -5,17 +5,14 @@ import SearchItem from './SearchItem/SearchItem';
 import {searchPlaceholder} from './searches';
 
 class App extends Component {
-  colorNormal = 'transparent';
-  colorError = 'pink';
-
   state = {
     query: '',
-    inputBackground: this.colorNormal
+    isBadQuery: false
   };
 
   cannotOpenUrl = () => {
-    this.setState({inputBackground: this.colorError});
-    setTimeout(() => this.setState({inputBackground: this.colorNormal}), 500);
+    this.setState({isBadQuery: true});
+    setTimeout(() => this.setState({isBadQuery: false}), 500);
   };
 
   focusOnInput = () => {
@@ -83,19 +80,28 @@ class App extends Component {
                          selectShortcut={this.selectShortcut.bind(this)}
                          search={s} />;
     });
+    const clearButtonStyle = {};
+    if (this.state.query === '') {
+      clearButtonStyle.display = 'none';
+    }
     return (
       <div className="App">
         <h1 className="App__heading">Search by shortcuts</h1>
-        <Input ref={inp => this.input = inp}
-               background={this.state.inputBackground}
-               query={this.state.query}
-               updateQuery={this.updateQuery.bind(this)}
-               openUrl={this.openUrl.bind(this)}/>
-        <hr />
-        <button onClick={this.openUrl}>Go</button>
-        <button onClick={this.clearQuery}>Clear</button>
-        <hr />
-        <ul>
+        <div className="App__input">
+          <Input ref={inp => this.input = inp}
+                 isBadQuery={this.state.isBadQuery}
+                 query={this.state.query}
+                 updateQuery={this.updateQuery.bind(this)}
+                 openUrl={this.openUrl.bind(this)}/>
+          <button className="App__open-button" onClick={this.openUrl}></button>
+          <button className="App__clear-button"
+                  style={clearButtonStyle}
+                  onClick={this.clearQuery}>
+            <span className="App__clear-button-left"></span>
+            <span className="App__clear-button-right"></span>
+          </button>
+        </div>
+        <ul className="App__search-items">
           {searchItems}
         </ul>
       </div>

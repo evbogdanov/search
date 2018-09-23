@@ -1,5 +1,43 @@
-body {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  box-sizing: border-box;
+  font-family: 'Tinos', serif;
+}
+
+:root {
+  --black-color: #000;
+  --grey-color: #999;
+  --medium-grey-color: #a1a1a1;
+  --light-grey-color: #e1e1e1;
+  --lightest-grey-color: #fafafa;
+  --green-color: #2b8989;
+  --light-green-color: #d8f9f5;
+  --light-red-color: #f8d7da;
+  --red-color: #721c24;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  color: var(--black-color);
+}
+
+input, button {
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+}
+
+ul {
+  list-style-type: none;
 }

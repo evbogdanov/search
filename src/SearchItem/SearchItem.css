@@ -1,0 +1,45 @@
+.SearchItem {
+  border-bottom: .1rem solid #eee;
+  height: 5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.SearchItem:hover {
+  background-color: var(--lightest-grey-color);
+}
+
+.SearchItem.SearchItem_matched {
+  background: var(--light-green-color);
+}
+
+.SearchItem:last-child {
+  border-bottom: none;
+}
+
+.SearchItem__image-and-shortcut {
+  line-height: 3rem;
+  display: flex;
+}
+
+.SearchItem__image {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+}
+
+.SearchItem__shortcut {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.SearchItem__description {
+  line-height: 3rem;
+  color: var(--grey-color);
+}
+
+.SearchItem.SearchItem_matched .SearchItem__description {
+  color: var(--green-color);
+}

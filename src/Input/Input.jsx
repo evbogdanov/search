@@ -15,11 +15,11 @@ class Input extends Component {
   };
 
   render = () => {
+    const extraClassName = this.props.isBadQuery ? 'Input_bad' : 'Input_ok';
     return (
       <input ref={inp => this.input = inp}
              type="text"
-             className="Input"
-             style={{background: this.props.background}}
+             className={`Input ${extraClassName}`}
              value={this.props.query}
              onKeyPress={this.handleKeyPress}
              onChange={this.handleChange}
