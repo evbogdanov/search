@@ -78,7 +78,7 @@ const searches = [
   {
     shortcut: 'f',
     alias: null,
-    url: 'https://www.collinsdictionary.com/dictionary/french-english/{s}',
+    url: 'https://www.collinsdictionary.com/search/?dictCode=french-english&q={s}',
     icon: 'collins.png',
     description: 'Collins French Dictionary',
   },
