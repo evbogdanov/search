@@ -28,6 +28,11 @@
   background-repeat: no-repeat;
   background-image: url('/search.svg');
   background-position: center center;
+  transition: background-color .25s ease-in-out;
+}
+
+.App__open-button:hover {
+  background-color: var(--lightest-grey-color);
 }
 
 .App__clear-button {
@@ -48,7 +53,7 @@
   display: block;
   left: 1.5rem;
   top: .5rem;
-  transition: background-color .25s ease;
+  transition: background-color .25s ease-in-out;
 }
 
 .App__clear-button:hover .App__clear-button-left,
