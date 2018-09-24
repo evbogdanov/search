@@ -26,7 +26,7 @@
   left: 0;
   background-size: 4rem 6rem;
   background-repeat: no-repeat;
-  background-image: url('/search.svg');
+  background-image: url('/img/search.svg');
   background-position: center center;
   transition: background-color .25s ease-in-out;
 }
