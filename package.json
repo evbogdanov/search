@@ -1,5 +1,6 @@
 {
   "name": "search",
+  "homepage": "https://evbogdanov.github.io/search",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,6 +12,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "fix-image-paths": "node src/fixImagePaths.js",
+    "publish": "gh-pages -d build",
+    "clean-build-dir": "rm -r build",
+    "deploy": "npm-run-all build fix-image-paths publish clean-build-dir"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.0",
+    "npm-run-all": "^4.1.3"
   }
 }
