@@ -1,0 +1,4 @@
+.SearchList {
+  border: .1rem solid var(--light-grey-color);
+  border-top: none;
+}

@@ -1,0 +1,29 @@
+.ButtonClear {
+  width: 3rem;
+  height: 3rem;
+}
+
+.ButtonClear__left-half,
+.ButtonClear__right-half {
+  height: 2rem;
+  width: .1rem;
+  position: absolute;
+  background-color: var(--black-color);
+  display: block;
+  left: 1.5rem;
+  top: .5rem;
+  transition: background-color .25s ease-in-out;
+}
+
+.ButtonClear:hover .ButtonClear__left-half,
+.ButtonClear:hover .ButtonClear__right-half {
+  background-color: var(--dark-grey-color);
+}
+
+.ButtonClear__left-half {
+  transform: rotate(45deg);
+}
+
+.ButtonClear__right-half {
+  transform: rotate(-45deg);
+}

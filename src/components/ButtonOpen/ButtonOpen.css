@@ -1,0 +1,13 @@
+.ButtonOpen {
+  width: 4rem;
+  height: 4rem;
+  background-size: 4rem 6rem;
+  background-repeat: no-repeat;
+  background-image: url('/img/search.svg');
+  background-position: center center;
+  transition: background-color .25s ease-in-out;
+}
+
+.ButtonOpen:hover {
+  background-color: var(--lightest-grey-color);
+}

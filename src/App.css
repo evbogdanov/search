@@ -11,65 +11,25 @@
   font-weight: 400;
 }
 
-.App__input {
+.App__input-and-buttons {
   position: relative;
   width: 100%;
   height: 5rem;
   border: .5rem solid var(--light-grey-color);
 }
 
-.App__open-button {
+.App__button-open {
   position: absolute;
   width: 4rem;
   height: 4rem;
   top: 0;
   left: 0;
-  background-size: 4rem 6rem;
-  background-repeat: no-repeat;
-  background-image: url('/img/search.svg');
-  background-position: center center;
-  transition: background-color .25s ease-in-out;
 }
 
-.App__open-button:hover {
-  background-color: var(--lightest-grey-color);
-}
-
-.App__clear-button {
+.App__button-clear {
   position: absolute;
   width: 3rem;
   height: 3rem;
   top: .5rem;
   right: 0;
-  display: block;
-}
-
-.App__clear-button-left,
-.App__clear-button-right {
-  height: 2rem;
-  width: .1rem;
-  position: absolute;
-  background-color: var(--black-color);
-  display: block;
-  left: 1.5rem;
-  top: .5rem;
-  transition: background-color .25s ease-in-out;
-}
-
-.App__clear-button:hover .App__clear-button-left,
-.App__clear-button:hover .App__clear-button-right {
-  background-color: var(--dark-grey-color);
-}
-
-.App__clear-button-left {
-  transform: rotate(45deg);
-}
-
-.App__clear-button-right {
-  transform: rotate(-45deg);
-}
-
-.App__search-items {
-  border: .1rem solid var(--light-grey-color);
-  border-top: none;
 }

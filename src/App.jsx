@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import Input from './Input/Input';
-import SearchItem from './SearchItem/SearchItem';
 import {searchPlaceholder} from './searches';
 import Message from './Message/Message';
+import ButtonOpen from './components/ButtonOpen/ButtonOpen';
+import ButtonClear from './components/ButtonClear/ButtonClear';
+import SearchList from './components/SearchList/SearchList';
 
 class App extends Component {
   state = {
@@ -72,49 +74,37 @@ class App extends Component {
 
   render = () => {
     const {exactMatch, matches} = this.getSearchesMatchingQuery();
-    const searchItems = matches.map(s => {
-      const isExactMatch = (
-        exactMatch !== null && exactMatch.shortcut === s.shortcut
-      );
-      return <SearchItem key={s.shortcut}
-                         isExactMatch={isExactMatch}
-                         selectShortcut={this.selectShortcut.bind(this)}
-                         search={s} />;
-    });
 
-    let message = null;
+    let messageText = '';
     if (exactMatch !== null) {
       const [, baseUrl] = exactMatch.url.match(/https?:\/\/(.+?)\//);
-      message = <Message text={`Go to ${baseUrl}`} />;
+      messageText = `Go to ${baseUrl}`;
     }
     else if (matches.length === 0) {
-      message = <Message text="Oops! Unknown shortcut." />;
+      messageText = 'Oops! Unknown shortcut.';
     }
 
     return (
       <div className="App">
         <h1 className="App__heading">Search by shortcuts</h1>
-        <div className="App__input">
+        <div className="App__input-and-buttons">
           <Input ref={inp => this.input = inp}
                  isBadQuery={this.state.isBadQuery}
                  query={this.state.query}
                  updateQuery={this.updateQuery.bind(this)}
                  openUrl={this.openUrl.bind(this)}/>
-          <button className="App__open-button"
-                  onClick={this.openUrl}></button>
-          {this.state.query === ''
-           ? null
-           : <button className="App__clear-button"
-                     onClick={this.clearQuery}>
-               <span className="App__clear-button-left"></span>
-               <span className="App__clear-button-right"></span>
-             </button>
-          }
+          <div className="App__button-open">
+            <ButtonOpen openUrl={this.openUrl.bind(this)} />
+          </div>
+          <div className="App__button-clear">
+            <ButtonClear query={this.state.query}
+                         clearQuery={this.clearQuery.bind(this)} />
+          </div>
         </div>
-        <ul className="App__search-items">
-          {searchItems}
-        </ul>
-        {message}
+        <SearchList exactMatch={exactMatch}
+                    matches={matches}
+                    selectShortcut={this.selectShortcut.bind(this)} />
+        <Message text={messageText} />
       </div>
     );
   };
