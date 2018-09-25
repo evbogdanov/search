@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Input from './Input/Input';
-import {searchPlaceholder} from './searches';
-import Message from './Message/Message';
-import ButtonOpen from './components/ButtonOpen/ButtonOpen';
-import ButtonClear from './components/ButtonClear/ButtonClear';
-import SearchList from './components/SearchList/SearchList';
+import { searchPlaceholder } from '../../searches';
+import Input from '../Input/Input';
+import ButtonOpen from '../ButtonOpen/ButtonOpen';
+import ButtonClear from '../ButtonClear/ButtonClear';
+import SearchList from '../SearchList/SearchList';
+import Message from '../Message/Message';
+
 
 class App extends Component {
   state = {

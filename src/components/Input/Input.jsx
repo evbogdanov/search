@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Input.css';
 
+
 class Input extends Component {
   handleChange = (event) => {
     const query = event.target.value;
@@ -30,5 +31,6 @@ class Input extends Component {
     );
   };
 }
+
 
 export default Input;

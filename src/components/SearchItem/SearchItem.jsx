@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SearchItem.css';
 
+
 class SearchItem extends Component {
   handleClick = () => {
     this.props.selectShortcut(this.props.search.shortcut);
@@ -29,5 +30,6 @@ class SearchItem extends Component {
     );
   }
 }
+
 
 export default SearchItem;

@@ -1,6 +1,7 @@
 import React from 'react';
 import './ButtonClear.css';
 
+
 const ButtonClear = (props) => {
   if (props.query === '') {
     return null;
@@ -14,5 +15,6 @@ const ButtonClear = (props) => {
     </button>
   );
 };
+
 
 export default ButtonClear;
