@@ -35,11 +35,30 @@
   font-size: 2rem;
 }
 
+.SearchItem__description-and-arrow {
+  display: flex;
+  align-items: center;
+}
+
 .SearchItem__description {
-  line-height: 3rem;
   color: var(--grey-color);
 }
 
-.SearchItem.SearchItem_matched .SearchItem__description {
+.SearchItem__arrow {
+  width: 1.7rem;
+  height: 1.7rem;
+  background-size: 1.7rem 1.7rem;
+  background-repeat: no-repeat;
+  background-image: url('/img/arrow.svg');
+  background-position: center center;
+  margin-left: .5rem;
+  display: none;
+}
+
+.SearchItem_matched .SearchItem__description {
   color: var(--green-color);
+}
+
+.SearchItem_matched .SearchItem__arrow {
+  display: block;
 }

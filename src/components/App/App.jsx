@@ -104,7 +104,8 @@ class App extends Component {
         </div>
         <SearchList exactMatch={exactMatch}
                     matches={matches}
-                    selectShortcut={this.selectShortcut.bind(this)} />
+                    selectShortcut={this.selectShortcut.bind(this)}
+                    openUrl={this.openUrl.bind(this)} />
         <Message text={messageText} />
       </div>
     );

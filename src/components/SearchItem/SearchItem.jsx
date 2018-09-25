@@ -4,7 +4,12 @@ import './SearchItem.css';
 
 class SearchItem extends Component {
   handleClick = () => {
-    this.props.selectShortcut(this.props.search.shortcut);
+    if (this.props.isExactMatch) {
+      this.props.openUrl();
+    }
+    else {
+      this.props.selectShortcut(this.props.search.shortcut);
+    }
   };
 
   render = () => {
@@ -25,7 +30,10 @@ class SearchItem extends Component {
           </div>
           <div className="SearchItem__shortcut">{s.shortcut}</div>
         </div>
-        <div className="SearchItem__description">{s.description}</div>
+        <div className="SearchItem__description-and-arrow">
+          <div className="SearchItem__description">{s.description}</div>
+          <div className="SearchItem__arrow"></div>
+        </div>
       </li>
     );
   }
