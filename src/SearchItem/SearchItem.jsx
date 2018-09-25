@@ -8,9 +8,13 @@ class SearchItem extends Component {
 
   render = () => {
     const s = this.props.search;
-    const classNameMatched = this.props.isExactMatch ? ' SearchItem_matched' : '';
+
+    const classes = ['SearchItem'];
+    if (this.props.isExactMatch) classes.push('SearchItem_matched');
+    const className = classes.join(' ');
+
     return (
-      <li className={`SearchItem${classNameMatched}`}
+      <li className={className}
           onClick={this.handleClick}>
         <div className="SearchItem__image-and-shortcut">
           <div className="SearchItem__image-wrapper">

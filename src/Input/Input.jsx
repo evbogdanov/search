@@ -15,11 +15,14 @@ class Input extends Component {
   };
 
   render = () => {
-    const extraClassName = this.props.isBadQuery ? 'Input_bad' : 'Input_ok';
+    const classes = ['Input'];
+    if (this.props.isBadQuery) classes.push('Input_bad');
+    const className = classes.join(' ');
+
     return (
       <input ref={inp => this.input = inp}
              type="text"
-             className={`Input ${extraClassName}`}
+             className={className}
              value={this.props.query}
              onKeyPress={this.handleKeyPress}
              onChange={this.handleChange}
