@@ -82,11 +82,6 @@ class App extends Component {
                          search={s} />;
     });
 
-    const clearButtonStyle = {};
-    if (this.state.query === '') {
-      clearButtonStyle.display = 'none';
-    }
-
     let message = null;
     if (exactMatch !== null) {
       const [, baseUrl] = exactMatch.url.match(/https?:\/\/(.+?)\//);
@@ -105,13 +100,16 @@ class App extends Component {
                  query={this.state.query}
                  updateQuery={this.updateQuery.bind(this)}
                  openUrl={this.openUrl.bind(this)}/>
-          <button className="App__open-button" onClick={this.openUrl}></button>
-          <button className="App__clear-button"
-                  style={clearButtonStyle}
-                  onClick={this.clearQuery}>
-            <span className="App__clear-button-left"></span>
-            <span className="App__clear-button-right"></span>
-          </button>
+          <button className="App__open-button"
+                  onClick={this.openUrl}></button>
+          {this.state.query === ''
+           ? null
+           : <button className="App__clear-button"
+                     onClick={this.clearQuery}>
+               <span className="App__clear-button-left"></span>
+               <span className="App__clear-button-right"></span>
+             </button>
+          }
         </div>
         <ul className="App__search-items">
           {searchItems}
