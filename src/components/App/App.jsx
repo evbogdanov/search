@@ -14,6 +14,59 @@ class App extends Component {
     isBadQuery: false
   };
 
+  /* ---------------------------------------------------------------------------
+   * These things don't belong to the state. They're more like computed state,
+   * depending on the value of `this.state.query`
+   * ---------------------------------------------------------------------------
+   * `exactMatch`   // one of `this.props.searches` which shortcut exactly
+   *                // matches the first word in `this.state.query`
+   *                // (default: null)
+   *
+   * `matches`      // all `this.props.searches` which shortcuts start with the
+   *                // first word in `this.state.query`
+   *
+   * `url`          // website URL to open
+   *                // (or null if no exact match)
+   *
+   * `messageText`  // some kind of status displayed in Message component
+   *                // (default: '')
+   */
+  computedState = () => {
+    const words = this.state.query.split(/\s+/);
+    const shortcut = words.shift();
+
+    let exactMatch = null;
+    const matches = this.props.searches.filter(s => {
+      if (s.shortcut === shortcut || s.alias === shortcut) {
+        exactMatch = s;
+      }
+      return s.shortcut.startsWith(shortcut) ||
+        (s.alias !== null && s.alias.startsWith(shortcut));
+    });
+
+    let [url, baseUrl] = [null, null];
+    if (exactMatch !== null) {
+      const uriComponent = encodeURIComponent(words.join(' '));
+      url = exactMatch.url.replace(searchPlaceholder, uriComponent);
+      [, baseUrl] = url.match(/https?:\/\/(.+?)\//);
+    }
+
+    let messageText = '';
+    if (baseUrl !== null) {
+      messageText = `Go to ${baseUrl}`;
+    }
+    else if (matches.length === 0) {
+      messageText = 'Oops! Unknown shortcut.';
+    }
+
+    return {
+      exactMatch,
+      matches,
+      url,
+      messageText,
+    };
+  };
+
   cannotOpenUrl = () => {
     this.setState({isBadQuery: true});
     setTimeout(() => this.setState({isBadQuery: false}), 500);
@@ -32,35 +85,12 @@ class App extends Component {
     this.focusOnInput();
   };
 
-  parseQuery = () => {
-    const words = this.state.query.split(/\s+/);
-    const shortcut = words.shift();
-    const uriComponent = encodeURIComponent(words.join(' '));
-    return {shortcut, uriComponent};
-  };
-
-  getSearchesMatchingQuery = () => {
-    const {shortcut} = this.parseQuery();
-    let exactMatch = null;
-    const matches = this.props.searches.filter(s => {
-      if (s.shortcut === shortcut || s.alias === shortcut) {
-        exactMatch = s;
-      }
-      return s.shortcut.startsWith(shortcut) ||
-        (s.alias !== null && s.alias.startsWith(shortcut));
-    });
-    return {exactMatch, matches};
-  };
-
-  openUrl = () => {
+  openUrl = (url) => {
     this.focusOnInput();
-    const {exactMatch} = this.getSearchesMatchingQuery();
-    if (exactMatch === null) {
+    if (url === null) {
       this.cannotOpenUrl();
       return;
     }
-    const {uriComponent} = this.parseQuery();
-    const url = exactMatch.url.replace(searchPlaceholder, uriComponent);
     window.open(url);
   };
 
@@ -74,16 +104,7 @@ class App extends Component {
   };
 
   render = () => {
-    const {exactMatch, matches} = this.getSearchesMatchingQuery();
-
-    let messageText = '';
-    if (exactMatch !== null) {
-      const [, baseUrl] = exactMatch.url.match(/https?:\/\/(.+?)\//);
-      messageText = `Go to ${baseUrl}`;
-    }
-    else if (matches.length === 0) {
-      messageText = 'Oops! Unknown shortcut.';
-    }
+    const {exactMatch, matches, url, messageText} = this.computedState();
 
     return (
       <div className="App">
@@ -93,9 +114,9 @@ class App extends Component {
                  isBadQuery={this.state.isBadQuery}
                  query={this.state.query}
                  updateQuery={this.updateQuery.bind(this)}
-                 openUrl={this.openUrl.bind(this)}/>
+                 openUrl={this.openUrl.bind(this, url)}/>
           <div className="App__button-open">
-            <ButtonOpen openUrl={this.openUrl.bind(this)} />
+            <ButtonOpen openUrl={this.openUrl.bind(this, url)} />
           </div>
           <div className="App__button-clear">
             <ButtonClear query={this.state.query}
@@ -105,7 +126,7 @@ class App extends Component {
         <SearchList exactMatch={exactMatch}
                     matches={matches}
                     selectShortcut={this.selectShortcut.bind(this)}
-                    openUrl={this.openUrl.bind(this)} />
+                    openUrl={this.openUrl.bind(this, url)} />
         <Message text={messageText} />
       </div>
     );
