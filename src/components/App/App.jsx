@@ -10,6 +10,12 @@ import Message from '../Message/Message';
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    // Sadly need this for managing the damn focus
+    this.inputComponentRef = React.createRef();
+  }
+
   state = {
     query: '',
     isBadQuery: false
@@ -74,7 +80,8 @@ class App extends Component {
   };
 
   focusOnInput = () => {
-    this.input.input.focus();
+    const inputComponent = this.inputComponentRef.current;
+    inputComponent.focus();
   };
 
   updateQuery = (query) => {
@@ -111,7 +118,7 @@ class App extends Component {
       <div className="App">
         <h1 className="App__heading">Search by shortcuts</h1>
         <div className="App__input-and-buttons">
-          <Input ref={inp => this.input = inp}
+          <Input ref={this.inputComponentRef}
                  isBadQuery={this.state.isBadQuery}
                  query={this.state.query}
                  updateQuery={this.updateQuery.bind(this)}
