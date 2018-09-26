@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ButtonClear.css';
 
 
@@ -14,6 +15,11 @@ const ButtonClear = (props) => {
       <span className="ButtonClear__right-half"></span>
     </button>
   );
+};
+
+ButtonClear.propTypes = {
+  query: PropTypes.string.isRequired,
+  clearQuery: PropTypes.func.isRequired,
 };
 
 

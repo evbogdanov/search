@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import PropTypes from 'prop-types';
 import { searchPlaceholder } from '../../searches';
 import Input from '../Input/Input';
 import ButtonOpen from '../ButtonOpen/ButtonOpen';
@@ -114,7 +115,7 @@ class App extends Component {
                  isBadQuery={this.state.isBadQuery}
                  query={this.state.query}
                  updateQuery={this.updateQuery.bind(this)}
-                 openUrl={this.openUrl.bind(this, url)}/>
+                 openUrl={this.openUrl.bind(this, url)} />
           <div className="App__button-open">
             <ButtonOpen openUrl={this.openUrl.bind(this, url)} />
           </div>
@@ -132,6 +133,10 @@ class App extends Component {
     );
   };
 }
+
+App.propTypes = {
+  searches: PropTypes.array.isRequired,
+};
 
 
 export default App;

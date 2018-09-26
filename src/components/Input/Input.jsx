@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Input.css';
 
 
@@ -31,6 +32,13 @@ class Input extends Component {
     );
   };
 }
+
+Input.propTypes = {
+  isBadQuery: PropTypes.bool.isRequired,
+  query: PropTypes.string.isRequired,
+  updateQuery: PropTypes.func.isRequired,
+  openUrl: PropTypes.func.isRequired,
+};
 
 
 export default Input;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './SearchItem.css';
 
 
@@ -38,6 +39,13 @@ class SearchItem extends Component {
     );
   }
 }
+
+SearchItem.propTypes = {
+  search: PropTypes.object.isRequired,
+  isExactMatch: PropTypes.bool.isRequired,
+  selectShortcut: PropTypes.func.isRequired,
+  openUrl: PropTypes.func.isRequired,
+};
 
 
 export default SearchItem;
