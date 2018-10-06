@@ -196,6 +196,13 @@ const searches = [
     icon: 'amalgama.png',
     description: 'Translate lyrics',
   },
+  {
+    shortcut: 'fs',
+    alias: null,
+    url: 'https://tatoeba.org/eng/sentences/search?from=fra&to=eng&query={s}',
+    icon: 'tatoeba.svg',
+    description: 'French sentences',
+  },
 ];
 
 export {
