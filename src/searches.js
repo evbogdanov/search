@@ -180,6 +180,24 @@ const searches = [
   },
 
   //////////////////////////////////////////////////////////////////////////////
+  /// Lyrics
+  //////////////////////////////////////////////////////////////////////////////
+  {
+    shortcut: 'am',
+    alias: null,
+    url: 'http://www.amalgama-lab.com/search/?q={s}',
+    icon: 'amalgama.png',
+    description: 'Amalgama',
+  },
+  {
+    shortcut: 'lt',
+    alias: null,
+    url: 'https://lyricstranslate.com/en/site-search?query={s}',
+    icon: 'lt.jpg',
+    description: 'Lyrics Translate',
+  },
+
+  //////////////////////////////////////////////////////////////////////////////
   /// Misc
   //////////////////////////////////////////////////////////////////////////////
   {
@@ -188,13 +206,6 @@ const searches = [
     url: 'http://www.alexa.com/search?q={s}',
     icon: 'alexa.png',
     description: 'Traffic statistics',
-  },
-  {
-    shortcut: 'am',
-    alias: null,
-    url: 'http://www.amalgama-lab.com/search/?q={s}',
-    icon: 'amalgama.png',
-    description: 'Translate lyrics',
   },
   {
     shortcut: 'fs',
