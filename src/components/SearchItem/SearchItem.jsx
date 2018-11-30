@@ -13,7 +13,7 @@ class SearchItem extends Component {
     }
   };
 
-  render = () => {
+  render() {
     const s = this.props.search;
 
     const classes = ['SearchItem'];

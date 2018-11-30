@@ -12,14 +12,15 @@ import Message from '../Message/Message';
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      query: '',
+      isBadQuery: false
+    };
+
     // Sadly need this for managing the damn focus
     this.inputComponentRef = React.createRef();
   }
-
-  state = {
-    query: '',
-    isBadQuery: false
-  };
 
   /* ---------------------------------------------------------------------------
    * These things don't belong to the state. They're more like computed state,
@@ -84,7 +85,7 @@ class App extends Component {
     inputComponent.focus();
   };
 
-  updateQuery = (query) => {
+  updateQuery = query => {
     this.setState({query});
   };
 
@@ -93,7 +94,7 @@ class App extends Component {
     this.focusOnInput();
   };
 
-  openUrl = (url) => {
+  openUrl = url => {
     this.focusOnInput();
     if (url === null) {
       this.cannotOpenUrl();
@@ -102,16 +103,16 @@ class App extends Component {
     window.open(url);
   };
 
-  selectShortcut = (shortcut) => {
+  selectShortcut = shortcut => {
     const query = this.state.query;
     const i = query.indexOf(' ');
     const newQuery = (query !== '' && i !== -1) ? (shortcut + query.substring(i))
-                                                : `${shortcut} `;
+          : `${shortcut} `;
     this.setState({query: newQuery});
     this.focusOnInput();
   };
 
-  render = () => {
+  render() {
     const {exactMatch, matches, url, messageText} = this.computedState();
 
     return (
@@ -121,20 +122,20 @@ class App extends Component {
           <Input ref={this.inputComponentRef}
                  isBadQuery={this.state.isBadQuery}
                  query={this.state.query}
-                 updateQuery={this.updateQuery.bind(this)}
-                 openUrl={this.openUrl.bind(this, url)} />
+                 updateQuery={this.updateQuery}
+                 openUrl={() => this.openUrl(url)} />
           <div className="App__button-open">
-            <ButtonOpen openUrl={this.openUrl.bind(this, url)} />
+            <ButtonOpen openUrl={() => this.openUrl(url)} />
           </div>
           <div className="App__button-clear">
             <ButtonClear query={this.state.query}
-                         clearQuery={this.clearQuery.bind(this)} />
+                         clearQuery={this.clearQuery} />
           </div>
         </div>
         <SearchList exactMatch={exactMatch}
                     matches={matches}
-                    selectShortcut={this.selectShortcut.bind(this)}
-                    openUrl={this.openUrl.bind(this, url)} />
+                    selectShortcut={this.selectShortcut}
+                    openUrl={() => this.openUrl(url)} />
         <Message text={messageText} />
       </div>
     );

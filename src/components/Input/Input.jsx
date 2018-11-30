@@ -9,12 +9,12 @@ class Input extends Component {
     this.inputRef = React.createRef();
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     const query = event.target.value;
     this.props.updateQuery(query);
   };
 
-  handleKeyPress = (event) => {
+  handleKeyPress = event => {
     if (event.key !== 'Enter') {
       return;
     }
@@ -25,7 +25,7 @@ class Input extends Component {
     this.inputRef.current.focus();
   };
 
-  render = () => {
+  render() {
     const classes = ['Input'];
     if (this.props.isBadQuery) classes.push('Input_bad');
     const className = classes.join(' ');
