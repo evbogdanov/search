@@ -185,7 +185,7 @@ const searches = [
   {
     shortcut: 'am',
     alias: null,
-    url: 'http://www.amalgama-lab.com/search/?q={s}',
+    url: 'https://www.amalgama-lab.com/search/?searchid=2148731&text={s}',
     icon: 'amalgama.png',
     description: 'Amalgama',
   },
