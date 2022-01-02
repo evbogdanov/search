@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import PropTypes from 'prop-types';
-import { searchPlaceholder } from '../../searches';
+import { searchPlaceholder } from '../../searches/';
 import Input from '../Input/Input';
 import ButtonOpen from '../ButtonOpen/ButtonOpen';
 import ButtonClear from '../ButtonClear/ButtonClear';

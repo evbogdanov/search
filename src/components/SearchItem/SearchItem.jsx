@@ -26,7 +26,7 @@ class SearchItem extends Component {
         <div className="SearchItem__image-and-shortcut">
           <div className="SearchItem__image-wrapper">
             <img className="SearchItem__image"
-                 src={`./img/icons/${s.icon}`}
+                 src={s.icon}
                  alt={s.shortcut} />
           </div>
           <div className="SearchItem__shortcut">{s.shortcut}</div>

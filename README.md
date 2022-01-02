@@ -1,5 +1,6 @@
 # search
-Search websites using shortcuts
+
+Search websites using my shortcuts
 
 ## Development
 
@@ -7,7 +8,7 @@ Search websites using shortcuts
 npm start
 ```
 
-## Production
+## Deploy to GitHub Pages
 
 ```
 npm run deploy
