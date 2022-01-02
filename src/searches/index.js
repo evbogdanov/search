@@ -1,5 +1,3 @@
-import React from 'react';
-
 import amalgamaIcon from './assets/amalgama.png';
 import collinsIcon from './assets/collins.png';
 import ddgIcon from './assets/ddg.png';
