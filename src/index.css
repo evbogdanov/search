@@ -1,44 +1,45 @@
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Tinos', serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tinos', serif;
 }
 
 :root {
-  --black-color: #000;
-  --dark-grey-color: #777;
-  --grey-color: #999;
-  --medium-grey-color: #a1a1a1;
-  --light-grey-color: #e3e3e3;
-  --lightest-grey-color: #fafafa;
-  --green-color: #2b8989;
-  --light-green-color: #d8f9f5;
-  --light-red-color: #f8d7da;
-  --red-color: #721c24;
+    --black-color: #000;
+    --dark-grey-color: #777;
+    --grey-color: #999;
+    --medium-grey-color: #a1a1a1;
+    --light-grey-color: #e3e3e3;
+    --lightest-grey-color: #fafafa;
+    --green-color: #2b8989;
+    --light-green-color: #d8f9f5;
+    --light-red-color: #f8d7da;
+    --red-color: #721c24;
 }
 
 html {
-  font-size: 62.5%;
+    font-size: 62.5%;
 }
 
 body {
-  font-size: 1.6rem;
-  color: var(--black-color);
+    font-size: 1.6rem;
+    color: var(--black-color);
 }
 
-input, button {
-  border: none;
-  outline: none;
+input,
+button {
+    border: none;
+    outline: none;
 }
 
 button {
-  cursor: pointer;
-  background: transparent;
+    cursor: pointer;
+    background: transparent;
 }
 
 ul {
-  list-style-type: none;
+    list-style-type: none;
 }

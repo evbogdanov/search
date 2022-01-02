@@ -13,3 +13,9 @@ npm start
 ```
 npm run deploy
 ```
+
+## Prettify code
+
+```
+npm run prettier-fix
+```

@@ -223,9 +223,4 @@ const searches = [
     },
 ];
 
-
-
-export {
-    searchPlaceholder,
-    searches
-};
+export { searchPlaceholder, searches };

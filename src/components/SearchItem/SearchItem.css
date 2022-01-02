@@ -1,64 +1,64 @@
 .SearchItem {
-  border-bottom: .1rem solid var(--light-grey-color);
-  height: 6rem;
-  padding: 1.5rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
+    border-bottom: 0.1rem solid var(--light-grey-color);
+    height: 6rem;
+    padding: 1.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
 .SearchItem:hover {
-  background-color: var(--lightest-grey-color);
+    background-color: var(--lightest-grey-color);
 }
 
 .SearchItem.SearchItem_matched {
-  background: var(--light-green-color);
+    background: var(--light-green-color);
 }
 
 .SearchItem:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .SearchItem__image-and-shortcut {
-  line-height: 3rem;
-  display: flex;
+    line-height: 3rem;
+    display: flex;
 }
 
 .SearchItem__image {
-  width: 3rem;
-  height: 3rem;
-  margin-right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
 }
 
 .SearchItem__shortcut {
-  font-weight: 700;
-  font-size: 2rem;
+    font-weight: 700;
+    font-size: 2rem;
 }
 
 .SearchItem__description-and-arrow {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .SearchItem__description {
-  color: var(--grey-color);
+    color: var(--grey-color);
 }
 
 .SearchItem__arrow {
-  width: 1.7rem;
-  height: 1.7rem;
-  background-size: 1.7rem 1.7rem;
-  background-repeat: no-repeat;
-  background-image: url('./assets/arrow.svg');
-  background-position: center center;
-  margin-left: .5rem;
-  display: none;
+    width: 1.7rem;
+    height: 1.7rem;
+    background-size: 1.7rem 1.7rem;
+    background-repeat: no-repeat;
+    background-image: url('./assets/arrow.svg');
+    background-position: center center;
+    margin-left: 0.5rem;
+    display: none;
 }
 
 .SearchItem_matched .SearchItem__description {
-  color: var(--green-color);
+    color: var(--green-color);
 }
 
 .SearchItem_matched .SearchItem__arrow {
-  display: block;
+    display: block;
 }
