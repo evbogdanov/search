@@ -43,14 +43,21 @@ const searches = [
         alias: null,
         url: 'https://www.deepl.com/en/translator#en/ru/{s}',
         icon: deeplIcon,
-        description: 'Deepl 🇬🇧 to 🇷🇺',
+        description: 'DeepL 🇬🇧 to 🇷🇺',
     },
     {
         shortcut: 'д',
         alias: null,
         url: 'https://www.deepl.com/en/translator#ru/en/{s}',
         icon: deeplIcon,
-        description: 'Deepl 🇷🇺 to 🇬🇧',
+        description: 'DeepL 🇷🇺 to 🇬🇧',
+    },
+    {
+        shortcut: 'dw',
+        alias: null,
+        url: 'https://www.deepl.com/en/write#en/{s}',
+        icon: deeplIcon,
+        description: 'DeepL Write',
     },
     {
         shortcut: 'tr',
