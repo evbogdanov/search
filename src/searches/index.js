@@ -6,7 +6,6 @@ import googleTranslateIcon from './assets/googleTranslate.png';
 import imdbIcon from './assets/imdb.png';
 import kinopoiskIcon from './assets/kp.png';
 import ltIcon from './assets/lt.jpg';
-import mdIcon from './assets/md.png';
 import tatoebaIcon from './assets/tatoeba.svg';
 import udIcon from './assets/ud.png';
 import wikipediaIcon from './assets/wikipedia.png';
@@ -101,13 +100,6 @@ const searches = [
         url: 'https://translate.google.com/?text={s}&sl=fr&tl=en',
         icon: googleTranslateIcon,
         description: 'Translate 🇫🇷 to 🇬🇧',
-    },
-    {
-        shortcut: 'e',
-        alias: 'm',
-        url: 'http://www.macmillandictionary.com/search/british/direct/?q={s}',
-        icon: mdIcon,
-        description: 'Macmillan Dictionary',
     },
     {
         shortcut: 'f',
