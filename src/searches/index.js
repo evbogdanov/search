@@ -1,6 +1,6 @@
 import amalgamaIcon from './assets/amalgama.png';
 import collinsIcon from './assets/collins.png';
-import ddgIcon from './assets/ddg.png';
+import deeplIcon from './assets/deepl.png';
 import googleIcon from './assets/google.png';
 import googleTranslateIcon from './assets/googleTranslate.png';
 import imdbIcon from './assets/imdb.png';
@@ -34,17 +34,24 @@ const searches = [
         icon: googleIcon,
         description: 'Search with Google',
     },
-    {
-        shortcut: 'ddg',
-        alias: 'duck',
-        url: 'https://duckduckgo.com/?q={s}',
-        icon: ddgIcon,
-        description: 'Search with DuckDuckGo',
-    },
 
     ////////////////////////////////////////////////////////////////////////////
     /// Learning languages
     ////////////////////////////////////////////////////////////////////////////
+    {
+        shortcut: 'd',
+        alias: null,
+        url: 'https://www.deepl.com/en/translator#en/ru/{s}',
+        icon: deeplIcon,
+        description: 'Deepl 🇬🇧 to 🇷🇺',
+    },
+    {
+        shortcut: 'д',
+        alias: null,
+        url: 'https://www.deepl.com/en/translator#ru/en/{s}',
+        icon: deeplIcon,
+        description: 'Deepl 🇷🇺 to 🇬🇧',
+    },
     {
         shortcut: 'tr',
         alias: null,
