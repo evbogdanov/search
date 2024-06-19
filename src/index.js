@@ -5,5 +5,3 @@ import App from './components/App/App';
 import { searches } from './searches/';
 
 ReactDOM.render(<App searches={searches} />, document.getElementById('app'));
-
-registerServiceWorker();
