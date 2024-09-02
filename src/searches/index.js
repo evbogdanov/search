@@ -3,6 +3,7 @@ import collinsIcon from './assets/collins.png';
 import deeplIcon from './assets/deepl.png';
 import googleIcon from './assets/google.png';
 import googleTranslateIcon from './assets/googleTranslate.png';
+import hhIcon from './assets/hh.svg';
 import imdbIcon from './assets/imdb.png';
 import kinopoiskIcon from './assets/kp.png';
 import ltIcon from './assets/lt.jpg';
@@ -33,6 +34,17 @@ const searches = [
         url: 'https://www.google.com/search?q={s}',
         icon: googleIcon,
         description: 'Search with Google',
+    },
+
+    ////////////////////////////////////////////////////////////////////////////
+    /// hh
+    ////////////////////////////////////////////////////////////////////////////
+    {
+        shortcut: 'h',
+        alias: 'hh',
+        url: 'https://github.com/search?q=org%3Ahhru+{s}&type=code',
+        icon: hhIcon,
+        description: 'Search hh code',
     },
 
     ////////////////////////////////////////////////////////////////////////////
