@@ -36,6 +36,15 @@ const searches = [
         description: 'Search with Google',
     },
 
+    // Special case: sum of numbers
+    {
+        shortcut: '+',
+        alias: null,
+        url: 'https://www.google.com/search?q={s}',
+        icon: googleIcon,
+        description: 'Sum of numbers',
+    },
+
     ////////////////////////////////////////////////////////////////////////////
     /// hh
     ////////////////////////////////////////////////////////////////////////////

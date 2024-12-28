@@ -57,7 +57,9 @@ class App extends Component {
         });
 
         if (exactMatch !== null) {
-            const uriComponent = encodeURIComponent(words.join(' '));
+            const isSum = exactMatch.shortcut === '+';
+            const separator = isSum ? '+' : ' ';
+            const uriComponent = encodeURIComponent(words.join(separator));
             url = exactMatch.url.replace(searchPlaceholder, uriComponent);
             [, baseUrl] = url.match(/https?:\/\/(.+?)\//);
         }
